@@ -8,6 +8,8 @@ import { ref } from "firebase/storage";
 import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useForm } from "react-hook-form";
 
+import "../Style/AddBook.css";
+
 // Create Post Function
 const CreatePost = ({ isAuth }) => {
   // useForm Hook
@@ -91,40 +93,59 @@ const CreatePost = ({ isAuth }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+      <form className="addBook" onSubmit={handleSubmit(onSubmit)}>
+        <h1>Add Book</h1>
+        <fieldset>
           <label> Upload Image</label>
-          <input {...register("image", { required: true })} type="file" />
-          {errors.image && <span>This field is required</span>}
-        </div>
+          <div>
+            <input
+              className="chooseFile"
+              {...register("image", { required: true })}
+              type="file"
+            />
+            {errors.image && <span>This field is required</span>}
+          </div>
 
-        <div>
-          <label> Title of the Book</label>
-          <input {...register("title", { required: true })} />
-          {errors.title && <span>This field is required</span>}
-        </div>
+          <div>
+            {/* <label> Title of the Book</label> */}
+            <input
+              {...register("title", { required: true })}
+              placeholder="Title"
+            />
+            {errors.title && <span>This field is required</span>}
+          </div>
 
-        <div>
-          <label> Price of the Book</label>
-          <input {...register("price", { required: true })} />
-          {errors.price && <span>This field is required</span>}
-        </div>
+          <div>
+            {/* <label> Price of the Book</label> */}
+            <input
+              {...register("price", { required: true })}
+              placeholder="Price"
+            />
+            {errors.price && <span>This field is required</span>}
+          </div>
 
-        <div>
-          <label>Author of the Book</label>
-          <input {...register("author", { required: true })} />
-          {errors.author && <span>This field is required</span>}
-        </div>
+          <div>
+            {/* <label>Author of the Book</label> */}
+            <input
+              {...register("author", { required: true })}
+              placeholder="Author"
+            />
+            {errors.author && <span>This field is required</span>}
+          </div>
 
-        <div>
-          <label>Category</label>
-          <input {...register("category", { required: true })} />
-          {errors.category && <span>This field is required</span>}
-        </div>
+          <div>
+            {/* <label>Category</label> */}
+            <input
+              {...register("category", { required: true })}
+              placeholder="Category"
+            />
+            {errors.category && <span>This field is required</span>}
+          </div>
 
-        <button> Submit</button>
+          <button className="BtnSubmit"> Submit</button>
+          <h3>Uploaded {progress} %</h3>
+        </fieldset>
       </form>
-      <h3>Uploaded {progress} %</h3>
     </div>
   );
 };

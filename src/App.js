@@ -47,6 +47,7 @@ function App() {
                 <li>Create Post</li>
               </Link>
               <button
+                className="logout"
                 onClick={() => {
                   SignOut();
                 }}

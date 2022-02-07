@@ -17,21 +17,24 @@ const Home = () => {
 
     getPosts();
   }, []);
+
   return (
-    <div className="container">
+    <section className="container">
       {postList.map((item) => {
         const { id, title, author, img_link, price, category } = item;
         return (
-          <div className="card" id="dd" key={id}>
-            <img src={img_link} alt="title" />
-            <h2>{title}</h2>
-            <h2>{author}</h2>
-            <h2>{price}</h2>
-            <h2>{category}</h2>
+          <div className="card" key={id}>
+            <div className="card-image book-1">
+              <img className="card-image" src={img_link} alt="title" />
+            </div>
+            <h3>{title}</h3>
+            <p>{author}</p>
+            {/* <h2>{price}</h2>
+              <h2>{category}</h2> */}
           </div>
         );
       })}
-    </div>
+    </section>
   );
 };
 
