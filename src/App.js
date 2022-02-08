@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 import "./Style/Navbar.css";
 import { signOut } from "firebase/auth";
 import { auth } from "./Config";
+import AddBook from "./Pages/DashBoard/AddBook";
+import DeleteBook from "./Pages/DashBoard/DeleteBook";
+import Download from "./Pages/DashBoard/Download";
 
 import {
   BrowserRouter as Router,
@@ -44,7 +47,7 @@ function App() {
           ) : (
             <>
               <Link to="/createpost">
-                <li>Create Post</li>
+                <li>Admin Dashboard</li>
               </Link>
               <button
                 className="logout"
@@ -62,7 +65,11 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/createpost" element={<CreatePost isAuth={isAuth} />} />
+        <Route path="/createpost" element={<CreatePost isAuth={isAuth} />}>
+          <Route path="addbook" element={<AddBook isAuth={isAuth} />}></Route>
+          <Route path="deletebook" element={<DeleteBook />}></Route>
+          <Route path="download" element={<Download />}></Route>
+        </Route>
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         <Route path="/require" element={<Require />} />
       </Routes>
