@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+.container {
+  display: inline-grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background-color: white;
+  width: 250px;
+  height: 370px;
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+}
+
+.card-image {
+  height: 284.6px;
+  width: 100%;
+  margin-bottom: 15px;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.card:hover {
+  background-color: rgb(62, 62, 62);
+  color: white;
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all 0.5s ease;
+}
