@@ -11,6 +11,7 @@ const Home = () => {
     const getPosts = async () => {
       const data = await getDocs(postCollectionRef);
       console.log(data);
+      console.log("Now");
       console.log(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
